@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_print
 
-import 'package:traccar_api/traccar_api.dart';
+import 'package:traccar_sdk/traccar_api.dart';
 
 /// Minimal runnable example for pub.dev scoring.
 ///

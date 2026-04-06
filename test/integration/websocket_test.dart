@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:traccar_api/traccar_api.dart';
+import 'package:traccar_sdk/traccar_api.dart';
 
 import 'test_config.dart';
 

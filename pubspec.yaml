@@ -1,4 +1,4 @@
-name: traccar_api
+name: traccar_sdk
 description: >-
   A fully-typed Dart/Flutter client for the Traccar GPS tracking server REST
   API (v6). Supports Basic and Bearer-token authentication, all REST endpoints,

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:traccar_api/traccar_api.dart';
+import 'package:traccar_sdk/traccar_api.dart';
 
 /// Shared environment for integration tests.
 ///
