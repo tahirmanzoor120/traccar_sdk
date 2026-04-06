@@ -1,0 +1,41 @@
+# Dart / Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+
+# Build outputs
+build/
+.build/
+
+# Generated files (run `flutter pub run build_runner build` to regenerate)
+*.g.dart
+*.freezed.dart
+*.gen.dart
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Coverage
+coverage/
+lcov.info
+
+# Pub cache
+.pub-cache/
+.pub/
+
+# Dart analysis server
+.dartServer
+
+# Logs
+*.log
