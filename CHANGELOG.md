@@ -1,3 +1,10 @@
+## 0.1.1
+
+- Cookie-based session authentication (`TraccarCookieAuth`) with automatic `Set-Cookie` capture.
+- Fixed HTTP 415 errors on GET/DELETE requests caused by a global `Content-Type` header.
+- Fixed `DioException` status-code loss when Traccar returns a non-JSON body on 4xx responses.
+- Integration test bootstrap redesigned: ephemeral admin creation, token generation, and automatic cleanup.
+
 ## 0.1.0
 
 - Initial release.
