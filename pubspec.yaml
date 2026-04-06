@@ -3,10 +3,10 @@ description: >-
   A fully-typed Dart/Flutter client for the Traccar GPS tracking server REST
   API (v6). Supports Basic and Bearer-token authentication, all REST endpoints,
   real-time WebSocket updates, and structured disableable logging.
-version: 0.1.0
-homepage: https://gitlab.com/yourorg/traccar_api
-repository: https://gitlab.com/yourorg/traccar_api
-issue_tracker: https://gitlab.com/yourorg/traccar_api/-/issues
+version: 0.1.1
+homepage: https://github.com/tahirmanzoor120/traccar_sdk
+repository: https://github.com/tahirmanzoor120/traccar_sdk
+issue_tracker: https://github.com/tahirmanzoor120/traccar_sdk/-/issues
 
 environment:
   sdk: ">=3.8.0 <4.0.0"
