@@ -86,26 +86,25 @@ class Position {
     Map<String, dynamic>? network,
     List<int>? geofenceIds,
     Map<String, dynamic>? attributes,
-  }) =>
-      Position(
-        id: id ?? this.id,
-        deviceId: deviceId ?? this.deviceId,
-        protocol: protocol ?? this.protocol,
-        deviceTime: deviceTime ?? this.deviceTime,
-        fixTime: fixTime ?? this.fixTime,
-        serverTime: serverTime ?? this.serverTime,
-        valid: valid ?? this.valid,
-        latitude: latitude ?? this.latitude,
-        longitude: longitude ?? this.longitude,
-        altitude: altitude ?? this.altitude,
-        speed: speed ?? this.speed,
-        course: course ?? this.course,
-        address: address ?? this.address,
-        accuracy: accuracy ?? this.accuracy,
-        network: network ?? this.network,
-        geofenceIds: geofenceIds ?? this.geofenceIds,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Position(
+    id: id ?? this.id,
+    deviceId: deviceId ?? this.deviceId,
+    protocol: protocol ?? this.protocol,
+    deviceTime: deviceTime ?? this.deviceTime,
+    fixTime: fixTime ?? this.fixTime,
+    serverTime: serverTime ?? this.serverTime,
+    valid: valid ?? this.valid,
+    latitude: latitude ?? this.latitude,
+    longitude: longitude ?? this.longitude,
+    altitude: altitude ?? this.altitude,
+    speed: speed ?? this.speed,
+    course: course ?? this.course,
+    address: address ?? this.address,
+    accuracy: accuracy ?? this.accuracy,
+    network: network ?? this.network,
+    geofenceIds: geofenceIds ?? this.geofenceIds,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>

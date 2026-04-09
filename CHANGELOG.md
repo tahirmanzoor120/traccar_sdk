@@ -1,3 +1,8 @@
+## 0.1.2
+
+- Improved pub package health and metadata for the next release.
+- Added web-safe websocket connector handling and broader package documentation.
+
 ## 0.1.1
 
 - Cookie-based session authentication (`TraccarCookieAuth`) with automatic `Set-Cookie` capture.

@@ -2,7 +2,7 @@ import 'package:logging/logging.dart';
 
 import 'traccar_log_level.dart';
 
-/// Central logger for the traccar_api package.
+/// Central logger for the traccar_sdk package.
 ///
 /// Disabled by default ([TraccarLogLevel.none]) — set [logLevel] to enable.
 ///
@@ -12,7 +12,7 @@ import 'traccar_log_level.dart';
 /// TraccarLogger.onRecord.listen((record) => debugPrint('[${record.level.name}] ${record.message}'));
 /// ```
 abstract final class TraccarLogger {
-  static final Logger _logger = Logger('traccar_api');
+  static final Logger _logger = Logger('traccar_sdk');
   static TraccarLogLevel _logLevel = TraccarLogLevel.none;
 
   /// The current log level. Defaults to [TraccarLogLevel.none].
@@ -54,8 +54,9 @@ abstract final class TraccarLogger {
     if (_logLevel == TraccarLogLevel.none) return;
     if (_logLevel == TraccarLogLevel.verbose) {
       final bodyStr = body?.toString() ?? '';
-      final truncated =
-          bodyStr.length > 2000 ? '${bodyStr.substring(0, 2000)}…' : bodyStr;
+      final truncated = bodyStr.length > 2000
+          ? '${bodyStr.substring(0, 2000)}…'
+          : bodyStr;
       _logger.fine('← $statusCode $uri (${elapsedMs}ms) | $truncated');
     } else {
       _logger.info('← $statusCode $uri (${elapsedMs}ms)');
@@ -83,10 +84,10 @@ abstract final class TraccarLogger {
   }
 
   static Level _toLevel(TraccarLogLevel level) => switch (level) {
-        TraccarLogLevel.none => Level.OFF,
-        TraccarLogLevel.error => Level.SEVERE,
-        TraccarLogLevel.warning => Level.WARNING,
-        TraccarLogLevel.info => Level.INFO,
-        TraccarLogLevel.verbose => Level.FINE,
-      };
+    TraccarLogLevel.none => Level.OFF,
+    TraccarLogLevel.error => Level.SEVERE,
+    TraccarLogLevel.warning => Level.WARNING,
+    TraccarLogLevel.info => Level.INFO,
+    TraccarLogLevel.verbose => Level.FINE,
+  };
 }

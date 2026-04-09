@@ -26,13 +26,12 @@ class NotificationMessage {
     String? digest,
     String? body,
     bool? priority,
-  }) =>
-      NotificationMessage(
-        subject: subject ?? this.subject,
-        digest: digest ?? this.digest,
-        body: body ?? this.body,
-        priority: priority ?? this.priority,
-      );
+  }) => NotificationMessage(
+    subject: subject ?? this.subject,
+    digest: digest ?? this.digest,
+    body: body ?? this.body,
+    priority: priority ?? this.priority,
+  );
 
   @override
   bool operator ==(Object other) =>
@@ -45,6 +44,5 @@ class NotificationMessage {
   int get hashCode => Object.hash(subject, body);
 
   @override
-  String toString() =>
-      'NotificationMessage(subject: $subject, body: $body)';
+  String toString() => 'NotificationMessage(subject: $subject, body: $body)';
 }

@@ -9,12 +9,7 @@ class Group {
   final int? groupId;
   final Map<String, dynamic>? attributes;
 
-  const Group({
-    this.id,
-    this.name,
-    this.groupId,
-    this.attributes,
-  });
+  const Group({this.id, this.name, this.groupId, this.attributes});
 
   factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
 
@@ -25,13 +20,12 @@ class Group {
     String? name,
     int? groupId,
     Map<String, dynamic>? attributes,
-  }) =>
-      Group(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        groupId: groupId ?? this.groupId,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Group(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    groupId: groupId ?? this.groupId,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>

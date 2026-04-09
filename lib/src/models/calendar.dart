@@ -11,12 +11,7 @@ class Calendar {
   final String? data;
   final Map<String, dynamic>? attributes;
 
-  const Calendar({
-    this.id,
-    this.name,
-    this.data,
-    this.attributes,
-  });
+  const Calendar({this.id, this.name, this.data, this.attributes});
 
   factory Calendar.fromJson(Map<String, dynamic> json) =>
       _$CalendarFromJson(json);
@@ -28,13 +23,12 @@ class Calendar {
     String? name,
     String? data,
     Map<String, dynamic>? attributes,
-  }) =>
-      Calendar(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        data: data ?? this.data,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Calendar(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    data: data ?? this.data,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>
@@ -48,6 +42,5 @@ class Calendar {
   int get hashCode => Object.hash(id, name, data);
 
   @override
-  String toString() =>
-      'Calendar(id: $id, name: $name)';
+  String toString() => 'Calendar(id: $id, name: $name)';
 }

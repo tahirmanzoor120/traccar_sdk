@@ -1,4 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:traccar_sdk/traccar_sdk.dart';
 
 import 'test_config.dart';
@@ -32,10 +32,7 @@ void main() {
   group('PermissionsApi', skip: TestConfig.skipReason, () {
     test('linkObjects (user → device) succeeds', () async {
       final permission = Permission(userId: userId, deviceId: deviceId);
-      await expectLater(
-        client.permissions.linkObjects(permission),
-        completes,
-      );
+      await expectLater(client.permissions.linkObjects(permission), completes);
     });
 
     test('unlinkObjects (user → device) succeeds', () async {

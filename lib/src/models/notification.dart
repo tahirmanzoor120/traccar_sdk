@@ -40,17 +40,16 @@ class Notification {
     String? notificators,
     int? calendarId,
     Map<String, dynamic>? attributes,
-  }) =>
-      Notification(
-        id: id ?? this.id,
-        type: type ?? this.type,
-        description: description ?? this.description,
-        always: always ?? this.always,
-        commandId: commandId ?? this.commandId,
-        notificators: notificators ?? this.notificators,
-        calendarId: calendarId ?? this.calendarId,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Notification(
+    id: id ?? this.id,
+    type: type ?? this.type,
+    description: description ?? this.description,
+    always: always ?? this.always,
+    commandId: commandId ?? this.commandId,
+    notificators: notificators ?? this.notificators,
+    calendarId: calendarId ?? this.calendarId,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>

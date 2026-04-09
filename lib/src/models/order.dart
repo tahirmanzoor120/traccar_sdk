@@ -31,15 +31,14 @@ class Order {
     String? fromAddress,
     String? toAddress,
     Map<String, dynamic>? attributes,
-  }) =>
-      Order(
-        id: id ?? this.id,
-        uniqueId: uniqueId ?? this.uniqueId,
-        description: description ?? this.description,
-        fromAddress: fromAddress ?? this.fromAddress,
-        toAddress: toAddress ?? this.toAddress,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Order(
+    id: id ?? this.id,
+    uniqueId: uniqueId ?? this.uniqueId,
+    description: description ?? this.description,
+    fromAddress: fromAddress ?? this.fromAddress,
+    toAddress: toAddress ?? this.toAddress,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>

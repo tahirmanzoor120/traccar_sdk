@@ -1,4 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:logging/logging.dart';
 import 'package:traccar_sdk/traccar_sdk.dart';
 
@@ -39,19 +39,22 @@ void main() {
       expect(records, isEmpty);
     });
 
-    test('onRecord emits when level is verbose and logRequest called', () async {
-      TraccarLogger.logLevel = TraccarLogLevel.verbose;
+    test(
+      'onRecord emits when level is verbose and logRequest called',
+      () async {
+        TraccarLogger.logLevel = TraccarLogLevel.verbose;
 
-      final records = <LogRecord>[];
-      final sub = TraccarLogger.onRecord.listen(records.add);
+        final records = <LogRecord>[];
+        final sub = TraccarLogger.onRecord.listen(records.add);
 
-      TraccarLogger.logRequest('GET', 'http://localhost/api/devices', {}, {});
+        TraccarLogger.logRequest('GET', 'http://localhost/api/devices', {}, {});
 
-      await Future<void>.delayed(Duration.zero);
-      await sub.cancel();
+        await Future<void>.delayed(Duration.zero);
+        await sub.cancel();
 
-      expect(records, isNotEmpty);
-    });
+        expect(records, isNotEmpty);
+      },
+    );
 
     test('logError emits SEVERE record', () async {
       TraccarLogger.logLevel = TraccarLogLevel.error;

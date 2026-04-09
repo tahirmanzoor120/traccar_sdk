@@ -9,10 +9,7 @@ import 'traccar_logger.dart';
 /// The `Authorization` header value is always replaced with `[redacted]`.
 class TraccarLoggingInterceptor extends Interceptor {
   @override
-  void onRequest(
-    RequestOptions options,
-    RequestInterceptorHandler handler,
-  ) {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // Stamp start time for elapsed-ms calculation in onResponse.
     options.extra['_startTime'] = DateTime.now();
 
@@ -32,7 +29,10 @@ class TraccarLoggingInterceptor extends Interceptor {
   }
 
   @override
-  void onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) {
+  void onResponse(
+    Response<dynamic> response,
+    ResponseInterceptorHandler handler,
+  ) {
     final startTime = response.requestOptions.extra['_startTime'] as DateTime?;
     final elapsed = startTime != null
         ? DateTime.now().difference(startTime).inMilliseconds

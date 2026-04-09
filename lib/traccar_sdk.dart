@@ -1,9 +1,11 @@
+// ignore_for_file: unnecessary_library_name
+
 /// A fully-typed Dart/Flutter client for the Traccar GPS tracking server API.
 ///
 /// ## Quick start
 ///
 /// ```dart
-/// import 'package:traccar_sdk/traccar_api.dart';
+/// import 'package:traccar_sdk/traccar_sdk.dart';
 ///
 /// final client = TraccarClient.basic(
 ///   'https://demo.traccar.org/api',
@@ -28,7 +30,7 @@
 /// });
 /// await socket.connect();
 /// ```
-library traccar_api;
+library traccar_sdk;
 
 // ── Client ────────────────────────────────────────────────────────────────────
 export 'src/traccar_client.dart';

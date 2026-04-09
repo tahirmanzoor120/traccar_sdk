@@ -47,8 +47,7 @@ class Permission {
           other.geofenceId == geofenceId;
 
   @override
-  int get hashCode =>
-      Object.hash(userId, deviceId, groupId, geofenceId);
+  int get hashCode => Object.hash(userId, deviceId, groupId, geofenceId);
 
   @override
   String toString() =>

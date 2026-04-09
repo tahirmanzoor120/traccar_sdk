@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 import '../models/traccar_update.dart';
 import '../traccar_client.dart';
+import 'channel_connector.dart';
 
 /// Provides a real-time stream of [TraccarUpdate] messages from
 /// the Traccar WebSocket endpoint (`/api/socket`).
@@ -48,8 +48,7 @@ class TraccarSocket {
   Stream<TraccarUpdate> get updates => _controller.stream;
 
   /// Whether the socket is currently open.
-  bool get isConnected =>
-      _channel != null && !(_controller.isClosed);
+  bool get isConnected => _channel != null && !(_controller.isClosed);
 
   // ── public API ──────────────────────────────────────────────────────────────
 
@@ -81,9 +80,7 @@ class TraccarSocket {
     TraccarLogger.logWs('connecting → $uri');
 
     try {
-      _channel = headers != null
-          ? IOWebSocketChannel.connect(uri, headers: headers)
-          : WebSocketChannel.connect(uri);
+      _channel = connectTraccarWebSocket(uri, headers: headers);
       await _channel!.ready;
       _reconnectAttempt = 0;
       TraccarLogger.logWs('connected');
@@ -130,7 +127,8 @@ class TraccarSocket {
           : (2 << _reconnectAttempt),
     );
     TraccarLogger.logWs(
-        'reconnecting in ${delay.inSeconds}s (attempt $_reconnectAttempt)');
+      'reconnecting in ${delay.inSeconds}s (attempt $_reconnectAttempt)',
+    );
     Future.delayed(delay, () {
       if (!_disposed) _connect();
     });

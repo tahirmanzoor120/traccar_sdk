@@ -22,7 +22,8 @@ abstract class BaseApi {
 
   TraccarException _convert(DioException e) {
     final response = e.response;
-    final message = _extractMessage(response?.data) ??
+    final message =
+        _extractMessage(response?.data) ??
         e.message ??
         'Request failed (${e.type.name})';
     return TraccarException(
@@ -38,10 +39,10 @@ abstract class BaseApi {
     }
     if (data is String && data.isNotEmpty) {
       // Use only the first non-empty line to avoid including stack traces.
-      final firstLine = data.split('\n').map((l) => l.trim()).firstWhere(
-        (l) => l.isNotEmpty,
-        orElse: () => '',
-      );
+      final firstLine = data
+          .split('\n')
+          .map((l) => l.trim())
+          .firstWhere((l) => l.isNotEmpty, orElse: () => '');
       return firstLine.isEmpty ? null : firstLine;
     }
     return null;

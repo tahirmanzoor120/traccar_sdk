@@ -14,11 +14,7 @@ class DeviceAccumulators {
   @JsonKey(fromJson: doubleFromJson)
   final double? hours;
 
-  const DeviceAccumulators({
-    this.deviceId,
-    this.totalDistance,
-    this.hours,
-  });
+  const DeviceAccumulators({this.deviceId, this.totalDistance, this.hours});
 
   factory DeviceAccumulators.fromJson(Map<String, dynamic> json) =>
       _$DeviceAccumulatorsFromJson(json);
@@ -29,12 +25,11 @@ class DeviceAccumulators {
     int? deviceId,
     double? totalDistance,
     double? hours,
-  }) =>
-      DeviceAccumulators(
-        deviceId: deviceId ?? this.deviceId,
-        totalDistance: totalDistance ?? this.totalDistance,
-        hours: hours ?? this.hours,
-      );
+  }) => DeviceAccumulators(
+    deviceId: deviceId ?? this.deviceId,
+    totalDistance: totalDistance ?? this.totalDistance,
+    hours: hours ?? this.hours,
+  );
 
   @override
   bool operator ==(Object other) =>

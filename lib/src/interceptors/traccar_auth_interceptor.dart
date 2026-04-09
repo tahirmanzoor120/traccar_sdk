@@ -28,7 +28,7 @@ class TraccarAuthInterceptor extends Interceptor {
         if (cookie != null) {
           options.headers['Cookie'] = cookie;
         }
-        // If cookie is null, no header is added — a login call must be made first.
+      // If cookie is null, no header is added — a login call must be made first.
     }
     handler.next(options);
   }

@@ -17,43 +17,40 @@ class CommandsApi extends BaseApi {
     int? limit,
     int? offset,
     String? keyword,
-  }) =>
-      guard(() async {
-        final params = <String, dynamic>{};
-        if (all != null) params['all'] = all;
-        if (userId != null) params['userId'] = userId;
-        if (deviceId != null) params['deviceId'] = deviceId;
-        if (groupId != null) params['groupId'] = groupId;
-        if (refresh != null) params['refresh'] = refresh;
-        if (limit != null) params['limit'] = limit;
-        if (offset != null) params['offset'] = offset;
-        if (keyword != null) params['keyword'] = keyword;
-        final response = await dio.get<List<dynamic>>(
-          '/commands',
-          queryParameters: params,
-        );
-        return (response.data ?? [])
-            .map((e) => Command.fromJson(e as Map<String, dynamic>))
-            .toList();
-      });
+  }) => guard(() async {
+    final params = <String, dynamic>{};
+    if (all != null) params['all'] = all;
+    if (userId != null) params['userId'] = userId;
+    if (deviceId != null) params['deviceId'] = deviceId;
+    if (groupId != null) params['groupId'] = groupId;
+    if (refresh != null) params['refresh'] = refresh;
+    if (limit != null) params['limit'] = limit;
+    if (offset != null) params['offset'] = offset;
+    if (keyword != null) params['keyword'] = keyword;
+    final response = await dio.get<List<dynamic>>(
+      '/commands',
+      queryParameters: params,
+    );
+    return (response.data ?? [])
+        .map((e) => Command.fromJson(e as Map<String, dynamic>))
+        .toList();
+  });
 
-  Future<Command> createCommand(Command command) =>
-      guard(() async {
-        final response = await dio.post<Map<String, dynamic>>(
-          '/commands',
-          data: command.toJson(),
-        );
-        return Command.fromJson(response.data!);
-      });
+  Future<Command> createCommand(Command command) => guard(() async {
+    final response = await dio.post<Map<String, dynamic>>(
+      '/commands',
+      data: command.toJson(),
+    );
+    return Command.fromJson(response.data!);
+  });
 
-  Future<Command> updateCommand(int id, Command command) =>
-      guard(() async {
-        final response = await dio.put<Map<String, dynamic>>(
-          '/commands/$id',
-          data: command.toJson(),
-        );
-        return Command.fromJson(response.data!);
-      });
+  Future<Command> updateCommand(int id, Command command) => guard(() async {
+    final response = await dio.put<Map<String, dynamic>>(
+      '/commands/$id',
+      data: command.toJson(),
+    );
+    return Command.fromJson(response.data!);
+  });
 
   Future<void> deleteCommand(int id) =>
       guard(() async => dio.delete<void>('/commands/$id'));
@@ -73,7 +70,7 @@ class CommandsApi extends BaseApi {
   /// Dispatches a command to a device. Returns the sent [Command] (HTTP 200)
   /// or `null` when the command was queued (HTTP 202).
   ///
-  /// Check [sendRawResponse] if you need the raw 202 queued payload.
+  /// Check [sendCommandRaw] if you need the raw 202 queued payload.
   Future<Command> sendCommand(Command command, {int? groupId}) =>
       guard(() async {
         final params = <String, dynamic>{};
@@ -102,12 +99,10 @@ class CommandsApi extends BaseApi {
           final data = response.data;
           if (data is List) {
             return data
-                .map((e) =>
-                    QueuedCommand.fromJson(e as Map<String, dynamic>))
+                .map((e) => QueuedCommand.fromJson(e as Map<String, dynamic>))
                 .toList();
           }
-          return QueuedCommand.fromJson(
-              response.data as Map<String, dynamic>);
+          return QueuedCommand.fromJson(response.data as Map<String, dynamic>);
         }
         return Command.fromJson(response.data as Map<String, dynamic>);
       });
@@ -116,17 +111,16 @@ class CommandsApi extends BaseApi {
   Future<List<CommandType>> getCommandTypes({
     int? deviceId,
     bool? textChannel,
-  }) =>
-      guard(() async {
-        final params = <String, dynamic>{};
-        if (deviceId != null) params['deviceId'] = deviceId;
-        if (textChannel != null) params['textChannel'] = textChannel;
-        final response = await dio.get<List<dynamic>>(
-          '/commands/types',
-          queryParameters: params,
-        );
-        return (response.data ?? [])
-            .map((e) => CommandType.fromJson(e as Map<String, dynamic>))
-            .toList();
-      });
+  }) => guard(() async {
+    final params = <String, dynamic>{};
+    if (deviceId != null) params['deviceId'] = deviceId;
+    if (textChannel != null) params['textChannel'] = textChannel;
+    final response = await dio.get<List<dynamic>>(
+      '/commands/types',
+      queryParameters: params,
+    );
+    return (response.data ?? [])
+        .map((e) => CommandType.fromJson(e as Map<String, dynamic>))
+        .toList();
+  });
 }

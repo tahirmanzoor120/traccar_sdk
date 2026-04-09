@@ -37,17 +37,16 @@ class Event {
     int? geofenceId,
     int? maintenanceId,
     Map<String, dynamic>? attributes,
-  }) =>
-      Event(
-        id: id ?? this.id,
-        type: type ?? this.type,
-        eventTime: eventTime ?? this.eventTime,
-        deviceId: deviceId ?? this.deviceId,
-        positionId: positionId ?? this.positionId,
-        geofenceId: geofenceId ?? this.geofenceId,
-        maintenanceId: maintenanceId ?? this.maintenanceId,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Event(
+    id: id ?? this.id,
+    type: type ?? this.type,
+    eventTime: eventTime ?? this.eventTime,
+    deviceId: deviceId ?? this.deviceId,
+    positionId: positionId ?? this.positionId,
+    geofenceId: geofenceId ?? this.geofenceId,
+    maintenanceId: maintenanceId ?? this.maintenanceId,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>

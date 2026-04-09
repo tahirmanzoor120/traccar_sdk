@@ -1,4 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:traccar_sdk/traccar_sdk.dart';
 
 import 'test_config.dart';
@@ -35,8 +35,9 @@ void main() {
         notificators: 'web',
         always: true,
       );
-      final created =
-          await client.notifications.createNotification(notification);
+      final created = await client.notifications.createNotification(
+        notification,
+      );
       expect(created.id, isNotNull);
       createdId = created.id;
     });
@@ -44,7 +45,11 @@ void main() {
     test('updateNotification modifies type', () async {
       final updated = await client.notifications.updateNotification(
         createdId!,
-        const Notification(type: 'deviceOffline', notificators: 'web', always: true),
+        const Notification(
+          type: 'deviceOffline',
+          notificators: 'web',
+          always: true,
+        ),
       );
       expect(updated.type, 'deviceOffline');
     });

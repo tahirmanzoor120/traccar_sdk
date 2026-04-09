@@ -54,22 +54,21 @@ class Device {
     String? contact,
     String? category,
     Map<String, dynamic>? attributes,
-  }) =>
-      Device(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        uniqueId: uniqueId ?? this.uniqueId,
-        status: status ?? this.status,
-        disabled: disabled ?? this.disabled,
-        lastUpdate: lastUpdate ?? this.lastUpdate,
-        positionId: positionId ?? this.positionId,
-        groupId: groupId ?? this.groupId,
-        phone: phone ?? this.phone,
-        model: model ?? this.model,
-        contact: contact ?? this.contact,
-        category: category ?? this.category,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Device(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    uniqueId: uniqueId ?? this.uniqueId,
+    status: status ?? this.status,
+    disabled: disabled ?? this.disabled,
+    lastUpdate: lastUpdate ?? this.lastUpdate,
+    positionId: positionId ?? this.positionId,
+    groupId: groupId ?? this.groupId,
+    phone: phone ?? this.phone,
+    model: model ?? this.model,
+    contact: contact ?? this.contact,
+    category: category ?? this.category,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>

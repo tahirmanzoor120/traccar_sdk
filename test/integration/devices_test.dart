@@ -1,4 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:traccar_sdk/traccar_sdk.dart';
 
 import 'test_config.dart';
@@ -43,7 +43,10 @@ void main() {
     test('updateDevice changes name', () async {
       final updated = await client.devices.updateDevice(
         createdId!,
-        Device(name: 'Renamed Device', uniqueId: 'TEST-${DateTime.now().millisecondsSinceEpoch}-r'),
+        Device(
+          name: 'Renamed Device',
+          uniqueId: 'TEST-${DateTime.now().millisecondsSinceEpoch}-r',
+        ),
       );
       expect(updated.name, 'Renamed Device');
     });

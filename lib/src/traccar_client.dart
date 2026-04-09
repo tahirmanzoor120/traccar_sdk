@@ -103,24 +103,22 @@ class TraccarClient {
     String email,
     String password, {
     TraccarLogLevel logLevel = TraccarLogLevel.none,
-  }) =>
-      TraccarClient(
-        baseUrl: baseUrl,
-        auth: TraccarBasicAuth(email: email, password: password),
-        logLevel: logLevel,
-      );
+  }) => TraccarClient(
+    baseUrl: baseUrl,
+    auth: TraccarBasicAuth(email: email, password: password),
+    logLevel: logLevel,
+  );
 
   /// Shorthand for Bearer-token authentication.
   factory TraccarClient.token(
     String baseUrl,
     String token, {
     TraccarLogLevel logLevel = TraccarLogLevel.none,
-  }) =>
-      TraccarClient(
-        baseUrl: baseUrl,
-        auth: TraccarTokenAuth(token: token),
-        logLevel: logLevel,
-      );
+  }) => TraccarClient(
+    baseUrl: baseUrl,
+    auth: TraccarTokenAuth(token: token),
+    logLevel: logLevel,
+  );
 
   /// Shorthand for cookie-based session authentication.
   ///
@@ -138,12 +136,11 @@ class TraccarClient {
     String email,
     String password, {
     TraccarLogLevel logLevel = TraccarLogLevel.none,
-  }) =>
-      TraccarClient(
-        baseUrl: baseUrl,
-        auth: TraccarCookieAuth(email: email, password: password),
-        logLevel: logLevel,
-      );
+  }) => TraccarClient(
+    baseUrl: baseUrl,
+    auth: TraccarCookieAuth(email: email, password: password),
+    logLevel: logLevel,
+  );
 
   // ── WebSocket ───────────────────────────────────────────────────────────────
 

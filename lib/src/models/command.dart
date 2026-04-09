@@ -32,15 +32,14 @@ class Command {
     String? type,
     bool? textChannel,
     Map<String, dynamic>? attributes,
-  }) =>
-      Command(
-        id: id ?? this.id,
-        deviceId: deviceId ?? this.deviceId,
-        description: description ?? this.description,
-        type: type ?? this.type,
-        textChannel: textChannel ?? this.textChannel,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Command(
+    id: id ?? this.id,
+    deviceId: deviceId ?? this.deviceId,
+    description: description ?? this.description,
+    type: type ?? this.type,
+    textChannel: textChannel ?? this.textChannel,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>

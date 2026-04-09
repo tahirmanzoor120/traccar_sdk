@@ -22,8 +22,10 @@ Future<void> main() async {
 
   // ── 2. Session ────────────────────────────────────────────────────────────
 
-  final me = await client.session
-      .login(email: 'admin@example.com', password: 'password');
+  final me = await client.session.login(
+    email: 'admin@example.com',
+    password: 'password',
+  );
   print('Logged in as ${me.email}');
 
   // ── 3. Server info ────────────────────────────────────────────────────────

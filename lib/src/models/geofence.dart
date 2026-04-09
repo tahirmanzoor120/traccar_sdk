@@ -34,15 +34,14 @@ class Geofence {
     String? area,
     int? calendarId,
     Map<String, dynamic>? attributes,
-  }) =>
-      Geofence(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        description: description ?? this.description,
-        area: area ?? this.area,
-        calendarId: calendarId ?? this.calendarId,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Geofence(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    description: description ?? this.description,
+    area: area ?? this.area,
+    calendarId: calendarId ?? this.calendarId,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>

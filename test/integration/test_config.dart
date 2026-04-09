@@ -96,10 +96,15 @@ class TestConfig {
     testAdminPassword = 'TestPass$ts!';
 
     // Step 1 – login as bootstrap admin with cookie auth.
-    bootstrapClient =
-        TraccarClient.cookie(baseUrl, _bootstrapEmail, _bootstrapPassword);
-    await bootstrapClient.session
-        .login(email: _bootstrapEmail, password: _bootstrapPassword);
+    bootstrapClient = TraccarClient.cookie(
+      baseUrl,
+      _bootstrapEmail,
+      _bootstrapPassword,
+    );
+    await bootstrapClient.session.login(
+      email: _bootstrapEmail,
+      password: _bootstrapPassword,
+    );
 
     // Step 2 – create the ephemeral test-admin user.
     final newAdmin = await bootstrapClient.users.createUser(
@@ -113,18 +118,26 @@ class TestConfig {
     testAdminId = newAdmin.id!;
 
     // Step 3 – login as test-admin and generate a session token.
-    final tempClient =
-        TraccarClient.basic(baseUrl, testAdminEmail, testAdminPassword);
-    await tempClient.session
-        .login(email: testAdminEmail, password: testAdminPassword);
+    final tempClient = TraccarClient.basic(
+      baseUrl,
+      testAdminEmail,
+      testAdminPassword,
+    );
+    await tempClient.session.login(
+      email: testAdminEmail,
+      password: testAdminPassword,
+    );
     testToken = await tempClient.session.generateToken(
       expiration: DateTime.now().add(const Duration(hours: 2)),
     );
     tempClient.close();
 
     // Step 4 – build the shared token client for all test files.
-    client = TraccarClient.token(baseUrl, testToken,
-        logLevel: TraccarLogLevel.info);
+    client = TraccarClient.token(
+      baseUrl,
+      testToken,
+      logLevel: TraccarLogLevel.info,
+    );
 
     _initialized = true;
     return client;

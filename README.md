@@ -4,8 +4,7 @@ A fully-typed, production-ready **Dart & Flutter** client for the [Traccar](http
 
 [![pub.dev](https://img.shields.io/pub/v/traccar_sdk.svg)](https://pub.dev/packages/traccar_sdk)
 [![Dart SDK](https://img.shields.io/badge/dart-%3E%3D3.8-0175C2?logo=dart)](https://dart.dev)
-[![Flutter](https://img.shields.io/badge/flutter-%3E%3D3.32-02569B?logo=flutter)](https://flutter.dev)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
 
 ---
 
@@ -88,11 +87,11 @@ A fully-typed, production-ready **Dart & Flutter** client for the [Traccar](http
 ```yaml
 # pubspec.yaml
 dependencies:
-  traccar_sdk: ^0.1.0
+  traccar_sdk: ^0.1.2
 ```
 
 ```sh
-flutter pub get
+dart pub get
 ```
 
 ---
@@ -194,7 +193,7 @@ tokenClient.close();
 | Auto-reconnect | Yes — reconnects on disconnect with exponential back-off |
 | Back-off | 1 s → 2 s → 4 s … up to 30 s |
 | Auth | Token via query param (`?token=…`) |
-| Cookie auth | Cookie header injected via `IOWebSocketChannel` |
+| Cookie auth | Supported on IO platforms; web clients should use token auth |
 | Basic auth | Not supported for WebSocket (throws `StateError`) |
 
 ---
@@ -205,9 +204,9 @@ tokenClient.close();
 // Set the level before creating the client.
 TraccarLogger.logLevel = TraccarLogLevel.verbose;
 
-// Attach any sink — works with print, debugPrint, or a logging framework.
+// Attach any sink — works with print or a logging framework.
 TraccarLogger.onRecord.listen((record) {
-  debugPrint('[traccar][${record.level.name}] ${record.message}');
+  print('[traccar][${record.level.name}] ${record.message}');
 });
 ```
 

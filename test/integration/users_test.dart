@@ -1,4 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:traccar_sdk/traccar_sdk.dart';
 
 import 'test_config.dart';
@@ -41,7 +41,11 @@ void main() {
     test('updateUser changes name', () async {
       final updated = await client.users.updateUser(
         createdId!,
-        User(id: createdId, name: 'Renamed User', email: 'testuser_renamed@example.com'),
+        User(
+          id: createdId,
+          name: 'Renamed User',
+          email: 'testuser_renamed@example.com',
+        ),
       );
       expect(updated.name, 'Renamed User');
     });

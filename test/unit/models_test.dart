@@ -1,4 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:traccar_sdk/traccar_sdk.dart';
 
 void main() {
@@ -111,7 +111,8 @@ void main() {
 
     test('fromJson handles integer coercion to double', () {
       final jsonWithInts = Map<String, dynamic>.from(json)
-        ..['latitude'] = 51  // integer in JSON
+        ..['latitude'] =
+            51 // integer in JSON
         ..['longitude'] = 0; // zero integer
       final pos = Position.fromJson(jsonWithInts);
       expect(pos.latitude, 51.0);
@@ -198,7 +199,7 @@ void main() {
     test('parses devices list', () {
       final json = {
         'devices': [
-          {'id': 1, 'name': 'Car', 'uniqueId': 'X1'}
+          {'id': 1, 'name': 'Car', 'uniqueId': 'X1'},
         ],
         'positions': <dynamic>[],
         'events': <dynamic>[],
@@ -224,7 +225,7 @@ void main() {
       final json = {
         'deviceId': 1,
         'deviceName': 'Car',
-        'maxSpeed': 0,     // JSON integer
+        'maxSpeed': 0, // JSON integer
         'averageSpeed': 0, // JSON integer
         'distance': 0,
         'spentFuel': 0,

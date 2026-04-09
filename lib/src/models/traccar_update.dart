@@ -16,11 +16,7 @@ class TraccarUpdate {
   final List<Position>? positions;
   final List<Event>? events;
 
-  const TraccarUpdate({
-    this.devices,
-    this.positions,
-    this.events,
-  });
+  const TraccarUpdate({this.devices, this.positions, this.events});
 
   factory TraccarUpdate.fromJson(Map<String, dynamic> json) =>
       _$TraccarUpdateFromJson(json);

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:traccar_sdk/traccar_sdk.dart';
 
 import 'test_config.dart';
@@ -28,7 +28,8 @@ void main() {
 
     test('createCalendar stores a calendar', () async {
       // Minimal iCal data (single all-day event).
-      const ical = 'BEGIN:VCALENDAR\r\n'
+      const ical =
+          'BEGIN:VCALENDAR\r\n'
           'VERSION:2.0\r\n'
           'BEGIN:VEVENT\r\n'
           'DTSTART;VALUE=DATE:20240101\r\n'
@@ -47,8 +48,9 @@ void main() {
     });
 
     test('updateCalendar changes name', () async {
-      final existing =
-          (await client.calendars.getCalendars()).firstWhere((c) => c.id == createdId);
+      final existing = (await client.calendars.getCalendars()).firstWhere(
+        (c) => c.id == createdId,
+      );
       final updated = await client.calendars.updateCalendar(
         createdId!,
         existing.copyWith(name: 'Renamed Calendar'),

@@ -31,7 +31,7 @@ final class TraccarTokenAuth extends TraccarAuth {
 /// response is automatically captured and injected as a `Cookie` header on
 /// every subsequent request and WebSocket connection.
 ///
-/// The [cookie] field is updated automatically by [TraccarAuthInterceptor] and
+/// The [cookie] field is updated automatically by the HTTP auth interceptor and
 /// must not be set manually.
 class TraccarCookieAuth extends TraccarAuth {
   final String email;
@@ -44,5 +44,6 @@ class TraccarCookieAuth extends TraccarAuth {
   TraccarCookieAuth({required this.email, required this.password, this.cookie});
 
   @override
-  String toString() => 'TraccarCookieAuth(email: $email, cookie: ${cookie != null ? "[set]" : "null"})';
+  String toString() =>
+      'TraccarCookieAuth(email: $email, cookie: ${cookie != null ? "[set]" : "null"})';
 }

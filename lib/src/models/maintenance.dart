@@ -39,15 +39,14 @@ class Maintenance {
     double? start,
     double? period,
     Map<String, dynamic>? attributes,
-  }) =>
-      Maintenance(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        type: type ?? this.type,
-        start: start ?? this.start,
-        period: period ?? this.period,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Maintenance(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    type: type ?? this.type,
+    start: start ?? this.start,
+    period: period ?? this.period,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>
@@ -57,6 +56,5 @@ class Maintenance {
   int get hashCode => id.hashCode;
 
   @override
-  String toString() =>
-      'Maintenance(id: $id, name: $name, type: $type)';
+  String toString() => 'Maintenance(id: $id, name: $name, type: $type)';
 }

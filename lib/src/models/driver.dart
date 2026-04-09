@@ -9,12 +9,7 @@ class Driver {
   final String? uniqueId;
   final Map<String, dynamic>? attributes;
 
-  const Driver({
-    this.id,
-    this.name,
-    this.uniqueId,
-    this.attributes,
-  });
+  const Driver({this.id, this.name, this.uniqueId, this.attributes});
 
   factory Driver.fromJson(Map<String, dynamic> json) => _$DriverFromJson(json);
 
@@ -25,13 +20,12 @@ class Driver {
     String? name,
     String? uniqueId,
     Map<String, dynamic>? attributes,
-  }) =>
-      Driver(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        uniqueId: uniqueId ?? this.uniqueId,
-        attributes: attributes ?? this.attributes,
-      );
+  }) => Driver(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    uniqueId: uniqueId ?? this.uniqueId,
+    attributes: attributes ?? this.attributes,
+  );
 
   @override
   bool operator ==(Object other) =>
@@ -42,6 +36,5 @@ class Driver {
   int get hashCode => Object.hash(id, uniqueId);
 
   @override
-  String toString() =>
-      'Driver(id: $id, name: $name, uniqueId: $uniqueId)';
+  String toString() => 'Driver(id: $id, name: $name, uniqueId: $uniqueId)';
 }
