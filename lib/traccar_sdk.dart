@@ -49,6 +49,7 @@ export 'src/logging/traccar_logger.dart';
 export 'src/websocket/traccar_socket.dart';
 
 // ── Models ────────────────────────────────────────────────────────────────────
+export 'src/models/action.dart';
 export 'src/models/attribute.dart';
 export 'src/models/calendar.dart';
 export 'src/models/command.dart';
@@ -67,6 +68,7 @@ export 'src/models/order.dart';
 export 'src/models/permission.dart';
 export 'src/models/position.dart';
 export 'src/models/queued_command.dart';
+export 'src/models/report_combined.dart';
 export 'src/models/report_geofences.dart';
 export 'src/models/report_stops.dart';
 export 'src/models/report_summary.dart';
@@ -78,6 +80,7 @@ export 'src/models/user.dart';
 
 // ── API classes (for direct instantiation / testing) ─────────────────────────
 export 'src/api/attributes_api.dart';
+export 'src/api/audit_api.dart';
 export 'src/api/calendars_api.dart';
 export 'src/api/commands_api.dart';
 export 'src/api/devices_api.dart';
@@ -89,6 +92,7 @@ export 'src/api/health_api.dart';
 export 'src/api/maintenance_api.dart';
 export 'src/api/notifications_api.dart';
 export 'src/api/orders_api.dart';
+export 'src/api/password_api.dart';
 export 'src/api/permissions_api.dart';
 export 'src/api/positions_api.dart';
 export 'src/api/reports_api.dart';
@@ -96,4 +100,5 @@ export 'src/api/server_api.dart';
 export 'src/api/session_api.dart';
 export 'src/api/share_api.dart';
 export 'src/api/statistics_api.dart';
+export 'src/api/stream_api.dart';
 export 'src/api/users_api.dart';

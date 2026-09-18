@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 
 import 'api/attributes_api.dart';
+import 'api/audit_api.dart';
 import 'api/calendars_api.dart';
 import 'api/commands_api.dart';
 import 'api/devices_api.dart';
@@ -14,6 +15,7 @@ import 'api/health_api.dart';
 import 'api/maintenance_api.dart';
 import 'api/notifications_api.dart';
 import 'api/orders_api.dart';
+import 'api/password_api.dart';
 import 'api/permissions_api.dart';
 import 'api/positions_api.dart';
 import 'api/reports_api.dart';
@@ -21,6 +23,7 @@ import 'api/server_api.dart';
 import 'api/session_api.dart';
 import 'api/share_api.dart';
 import 'api/statistics_api.dart';
+import 'api/stream_api.dart';
 import 'api/users_api.dart';
 import 'auth/traccar_auth.dart';
 import 'interceptors/traccar_auth_interceptor.dart';
@@ -61,6 +64,7 @@ class TraccarClient {
   // API accessors ─────────────────────────────────────────────────────────────
 
   late final AttributesApi attributes = AttributesApi(_dio);
+  late final AuditApi audit = AuditApi(_dio);
   late final CalendarsApi calendars = CalendarsApi(_dio);
   late final CommandsApi commands = CommandsApi(_dio);
   late final DevicesApi devices = DevicesApi(_dio);
@@ -72,6 +76,7 @@ class TraccarClient {
   late final MaintenanceApi maintenance = MaintenanceApi(_dio);
   late final NotificationsApi notifications = NotificationsApi(_dio);
   late final OrdersApi orders = OrdersApi(_dio);
+  late final PasswordApi password = PasswordApi(_dio);
   late final PermissionsApi permissions = PermissionsApi(_dio);
   late final PositionsApi positions = PositionsApi(_dio);
   late final ReportsApi reports = ReportsApi(_dio);
@@ -79,6 +84,7 @@ class TraccarClient {
   late final SessionApi session = SessionApi(_dio);
   late final ShareApi share = ShareApi(_dio);
   late final StatisticsApi statistics = StatisticsApi(_dio);
+  late final StreamApi stream = StreamApi(_dio);
   late final UsersApi users = UsersApi(_dio);
 
   // ── constructors ────────────────────────────────────────────────────────────

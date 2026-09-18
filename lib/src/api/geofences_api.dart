@@ -32,6 +32,11 @@ class GeofencesApi extends BaseApi {
         .toList();
   });
 
+  Future<Geofence> getGeofence(int id) => guard(() async {
+    final response = await dio.get<Map<String, dynamic>>('/geofences/$id');
+    return Geofence.fromJson(response.data!);
+  });
+
   Future<Geofence> createGeofence(Geofence geofence) => guard(() async {
     final response = await dio.post<Map<String, dynamic>>(
       '/geofences',

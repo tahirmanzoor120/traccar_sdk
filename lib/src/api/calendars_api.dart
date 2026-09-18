@@ -26,6 +26,11 @@ class CalendarsApi extends BaseApi {
         .toList();
   });
 
+  Future<Calendar> getCalendar(int id) => guard(() async {
+    final response = await dio.get<Map<String, dynamic>>('/calendars/$id');
+    return Calendar.fromJson(response.data!);
+  });
+
   Future<Calendar> createCalendar(Calendar calendar) => guard(() async {
     final response = await dio.post<Map<String, dynamic>>(
       '/calendars',

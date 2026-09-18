@@ -235,4 +235,72 @@ void main() {
       expect(summary.distance, 0.0);
     });
   });
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Action (audit log)
+  // ──────────────────────────────────────────────────────────────────────────
+  group('Action', () {
+    final json = {
+      'id': 1,
+      'actionTime': '2024-01-15T10:00:00.000Z',
+      'address': '127.0.0.1',
+      'userId': 1,
+      'userEmail': 'admin@example.com',
+      'actionType': 'login',
+      'objectType': 'device',
+      'objectId': 10,
+      'attributes': <String, dynamic>{},
+    };
+
+    test('fromJson / toJson roundtrip', () {
+      final action = Action.fromJson(json);
+      expect(action.id, 1);
+      expect(action.actionType, 'login');
+      expect(action.objectType, 'device');
+      expect(action.objectId, 10);
+      expect(action.toJson(), json);
+    });
+
+    test('equality', () {
+      final a = Action.fromJson(json);
+      final b = Action.fromJson(json);
+      expect(a, equals(b));
+    });
+  });
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // ReportCombined
+  // ──────────────────────────────────────────────────────────────────────────
+  group('ReportCombined', () {
+    test('parses route pairs, events, and positions', () {
+      final json = {
+        'deviceId': 1,
+        'route': [
+          [-0.1278, 51.5074],
+          [-0.1280, 51.5080],
+        ],
+        'events': [
+          {'id': 5, 'type': 'deviceOnline', 'deviceId': 1},
+        ],
+        'positions': [
+          {'id': 100, 'deviceId': 1, 'latitude': 51.5074, 'longitude': -0.1278},
+        ],
+      };
+      final report = ReportCombined.fromJson(json);
+      expect(report.deviceId, 1);
+      expect(report.route, [
+        [-0.1278, 51.5074],
+        [-0.1280, 51.5080],
+      ]);
+      expect(report.events?.single.type, 'deviceOnline');
+      expect(report.positions?.single.latitude, 51.5074);
+    });
+
+    test('handles missing keys gracefully', () {
+      final report = ReportCombined.fromJson({'deviceId': 1});
+      expect(report.route, isNull);
+      expect(report.events, isNull);
+      expect(report.positions, isNull);
+    });
+  });
 }

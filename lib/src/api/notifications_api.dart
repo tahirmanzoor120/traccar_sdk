@@ -34,6 +34,11 @@ class NotificationsApi extends BaseApi {
         .toList();
   });
 
+  Future<Notification> getNotification(int id) => guard(() async {
+    final response = await dio.get<Map<String, dynamic>>('/notifications/$id');
+    return Notification.fromJson(response.data!);
+  });
+
   Future<Notification> createNotification(Notification notification) =>
       guard(() async {
         final response = await dio.post<Map<String, dynamic>>(
@@ -62,9 +67,31 @@ class NotificationsApi extends BaseApi {
         .toList();
   });
 
+  /// Fetches the notificators available on the server (e.g. `mail`, `web`).
+  ///
+  /// When [announcement] is `true`, notificators that cannot deliver
+  /// announcements are excluded.
+  Future<List<NotificationType>> getNotificators({bool? announcement}) =>
+      guard(() async {
+        final params = <String, dynamic>{};
+        if (announcement != null) params['announcement'] = announcement;
+        final response = await dio.get<List<dynamic>>(
+          '/notifications/notificators',
+          queryParameters: params,
+        );
+        return (response.data ?? [])
+            .map((e) => NotificationType.fromJson(e as Map<String, dynamic>))
+            .toList();
+      });
+
   /// Sends a test notification to the current user via configured channels.
   Future<void> sendTestNotification() =>
       guard(() async => dio.post<void>('/notifications/test'));
+
+  /// Sends a test notification to the current user via the given
+  /// [notificator] only (e.g. `mail`, `web`).
+  Future<void> testNotificator(String notificator) =>
+      guard(() async => dio.post<void>('/notifications/test/$notificator'));
 
   /// Sends a custom notification via [notificator] (e.g. `mail`, `web`).
   ///

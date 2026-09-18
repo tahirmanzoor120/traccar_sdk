@@ -32,6 +32,11 @@ class DriversApi extends BaseApi {
         .toList();
   });
 
+  Future<Driver> getDriver(int id) => guard(() async {
+    final response = await dio.get<Map<String, dynamic>>('/drivers/$id');
+    return Driver.fromJson(response.data!);
+  });
+
   Future<Driver> createDriver(Driver driver) => guard(() async {
     final response = await dio.post<Map<String, dynamic>>(
       '/drivers',

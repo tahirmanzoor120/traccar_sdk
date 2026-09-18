@@ -26,6 +26,11 @@ class GroupsApi extends BaseApi {
         .toList();
   });
 
+  Future<Group> getGroup(int id) => guard(() async {
+    final response = await dio.get<Map<String, dynamic>>('/groups/$id');
+    return Group.fromJson(response.data!);
+  });
+
   Future<Group> createGroup(Group group) => guard(() async {
     final response = await dio.post<Map<String, dynamic>>(
       '/groups',

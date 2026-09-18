@@ -29,6 +29,12 @@ class SessionApi extends BaseApi {
     return User.fromJson(response.data!);
   });
 
+  /// Opens a session impersonating [id]. Admin or manager only.
+  Future<User> openSessionAs(int id) => guard(() async {
+    final response = await dio.get<Map<String, dynamic>>('/session/$id');
+    return User.fromJson(response.data!);
+  });
+
   /// Closes the current session (logout).
   Future<void> logout() => guard(() async => dio.delete<void>('/session'));
 

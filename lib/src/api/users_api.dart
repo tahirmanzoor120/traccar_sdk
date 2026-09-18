@@ -26,6 +26,11 @@ class UsersApi extends BaseApi {
         .toList();
   });
 
+  Future<User> getUser(int id) => guard(() async {
+    final response = await dio.get<Map<String, dynamic>>('/users/$id');
+    return User.fromJson(response.data!);
+  });
+
   Future<User> createUser(User user) => guard(() async {
     final response = await dio.post<Map<String, dynamic>>(
       '/users',

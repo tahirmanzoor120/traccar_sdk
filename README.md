@@ -35,26 +35,29 @@ A fully-typed, production-ready **Dart & Flutter** client for the [Traccar](http
 
 | API class | Endpoints | What you can do |
 |---|---|---|
-| `SessionApi` | `session` | Login, logout, get session, generate & revoke tokens |
+| `SessionApi` | `session` | Login, logout, get session, generate & revoke tokens, open a session as another user |
+| `PasswordApi` | `password` | Unauthenticated password reset & update via emailed token |
 | `DevicesApi` | `devices` | CRUD devices, get latest positions, device accumulators |
-| `UsersApi` | `users` | CRUD users, manage admin flag |
-| `GroupsApi` | `groups` | CRUD device groups |
-| `GeofencesApi` | `geofences` | CRUD geofences (circle, polygon, linestring) |
+| `UsersApi` | `users` | CRUD users, get by id, manage admin flag |
+| `GroupsApi` | `groups` | CRUD device groups, get by id |
+| `GeofencesApi` | `geofences` | CRUD geofences (circle, polygon, linestring), get by id |
 | `PositionsApi` | `positions` | Query historical positions by device/time |
-| `NotificationsApi` | `notifications` | CRUD notifications, list supported types & notificators |
-| `CalendarsApi` | `calendars` | CRUD iCal-based calendars |
-| `CommandsApi` | `commands` | Saved commands, send queued commands, list types |
-| `DriversApi` | `drivers` | CRUD drivers with unique identifiers |
-| `AttributesApi` | `attributes` | CRUD computed attributes |
+| `NotificationsApi` | `notifications` | CRUD notifications, get by id, list supported types & notificators, send test notifications |
+| `CalendarsApi` | `calendars` | CRUD iCal-based calendars, get by id |
+| `CommandsApi` | `commands` | Saved commands, get by id, send queued commands, list types |
+| `DriversApi` | `drivers` | CRUD drivers with unique identifiers, get by id |
+| `AttributesApi` | `attributes` | CRUD computed attributes, test-evaluate against a device |
 | `MaintenanceApi` | `maintenance` | CRUD maintenance schedules |
-| `OrdersApi` | `orders` | CRUD dispatch orders |
-| `PermissionsApi` | `permissions` | Link / unlink any two resource types |
-| `ReportsApi` | `reports` | Route, events, trips, stops, summary, geofence intervals |
+| `OrdersApi` | `orders` | CRUD dispatch orders, get by id |
+| `PermissionsApi` | `permissions` | Link / unlink any two resource types, single or bulk |
+| `ReportsApi` | `reports` | Route, events, trips, stops, summary, combined, geofence intervals, plus `.xlsx`/email report downloads |
 | `EventsApi` | `events` | Query events by device/type/time |
 | `ServerApi` | `server` | Get & update server config |
 | `StatisticsApi` | `statistics` | Server usage statistics |
 | `ShareApi` | `share` | Shareable links for positions |
 | `HealthApi` | `health` | Server health check |
+| `AuditApi` | `audit` | Admin-only audit log of user actions |
+| `StreamApi` | `stream` | Device camera HLS playlist & video segments |
 
 ### Models
 
@@ -76,7 +79,8 @@ A fully-typed, production-ready **Dart & Flutter** client for the [Traccar](http
 | `Event` | Device event (geofence enter/exit, alarm, etc.) |
 | `Server` | Server configuration and feature flags |
 | `Statistics` | Server-side usage counters |
-| `ReportSummary` / `ReportTrips` / `ReportStops` / `ReportGeofences` | Report result rows |
+| `ReportSummary` / `ReportTrips` / `ReportStops` / `ReportGeofences` / `ReportCombined` | Report result rows |
+| `Action` | Admin audit log entry |
 | `TraccarUpdate` | WebSocket frame (positions + events + devices) |
 | `NotificationType` / `NotificationMessage` / `QueuedCommand` | Supporting types |
 

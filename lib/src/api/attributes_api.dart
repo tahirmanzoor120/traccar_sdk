@@ -51,4 +51,21 @@ class AttributesApi extends BaseApi {
 
   Future<void> deleteAttribute(int id) =>
       guard(() async => dio.delete<void>('/attributes/computed/$id'));
+
+  /// Evaluates [attribute] against [deviceId]'s latest position without
+  /// persisting it. Admin only.
+  ///
+  /// Returns the computed `num`, `bool`, or `String` value, or `null` when
+  /// the computation produced no value.
+  Future<Object?> testComputedAttribute({
+    required int deviceId,
+    required Attribute attribute,
+  }) => guard(() async {
+    final response = await dio.post<Object?>(
+      '/attributes/computed/test',
+      data: attribute.toJson(),
+      queryParameters: {'deviceId': deviceId},
+    );
+    return response.data;
+  });
 }

@@ -30,6 +30,11 @@ class OrdersApi extends BaseApi {
         .toList();
   });
 
+  Future<Order> getOrder(int id) => guard(() async {
+    final response = await dio.get<Map<String, dynamic>>('/orders/$id');
+    return Order.fromJson(response.data!);
+  });
+
   Future<Order> createOrder(Order order) => guard(() async {
     final response = await dio.post<Map<String, dynamic>>(
       '/orders',

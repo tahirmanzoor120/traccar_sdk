@@ -36,6 +36,11 @@ class CommandsApi extends BaseApi {
         .toList();
   });
 
+  Future<Command> getCommand(int id) => guard(() async {
+    final response = await dio.get<Map<String, dynamic>>('/commands/$id');
+    return Command.fromJson(response.data!);
+  });
+
   Future<Command> createCommand(Command command) => guard(() async {
     final response = await dio.post<Map<String, dynamic>>(
       '/commands',
