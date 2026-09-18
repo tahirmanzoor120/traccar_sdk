@@ -1,3 +1,8 @@
+## 0.1.3
+
+- Fixed pub.dev score regression: generated `*.g.dart` model files are now committed and published instead of being gitignored, which was causing static analysis failures, missing platform-support detection, and failed dependency lower-bound checks.
+- Bumped `json_annotation` lower bound to `^4.12.0` to match the generated code.
+
 ## 0.1.2
 
 - Improved pub package health and metadata for the next release.
