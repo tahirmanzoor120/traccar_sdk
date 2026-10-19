@@ -2,7 +2,7 @@ name: traccar_sdk
 description: >-
   Typed Dart client for the Traccar GPS tracking server API with REST,
   WebSocket updates, and Basic, token, and cookie authentication.
-version: 0.2.0
+version: 0.2.1
 license: Apache-2.0
 homepage: https://github.com/tahirmanzoor120/traccar_sdk
 repository: https://github.com/tahirmanzoor120/traccar_sdk

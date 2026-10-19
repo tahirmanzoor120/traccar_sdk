@@ -1,3 +1,9 @@
+## 0.2.1
+
+Updated for Traccar server API 6.16.0.
+
+- Added `business` field to the `ReportTrips` model.
+
 ## 0.2.0
 
 Updated for Traccar server API 6.15.3 (was 6.12.2). All changes are additive — no existing method signatures changed.

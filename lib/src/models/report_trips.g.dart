@@ -28,6 +28,7 @@ ReportTrips _$ReportTripsFromJson(Map<String, dynamic> json) => ReportTrips(
   endLon: doubleFromJson(json['endLon']),
   driverUniqueId: json['driverUniqueId'] as String?,
   driverName: json['driverName'] as String?,
+  business: json['business'] as bool?,
 );
 
 Map<String, dynamic> _$ReportTripsToJson(ReportTrips instance) =>
@@ -49,4 +50,5 @@ Map<String, dynamic> _$ReportTripsToJson(ReportTrips instance) =>
       'endLon': ?instance.endLon,
       'driverUniqueId': ?instance.driverUniqueId,
       'driverName': ?instance.driverName,
+      'business': ?instance.business,
     };

@@ -46,6 +46,9 @@ class ReportTrips {
   final String? driverUniqueId;
   final String? driverName;
 
+  /// Business attribute from the trip's starting position.
+  final bool? business;
+
   const ReportTrips({
     this.deviceId,
     this.deviceName,
@@ -64,6 +67,7 @@ class ReportTrips {
     this.endLon,
     this.driverUniqueId,
     this.driverName,
+    this.business,
   });
 
   factory ReportTrips.fromJson(Map<String, dynamic> json) =>
